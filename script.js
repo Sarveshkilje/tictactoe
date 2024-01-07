@@ -68,28 +68,31 @@
         };
 
         // Add click event listeners to each box
-        boxes.forEach((box) => {
-            box.addEventListener("click", () => {
-                console.log("box was clicked");
-                if (turn0) {
-                    // Player O
-                    box.innerText = "O";
-                    turn0 = false;
-                } else {
-                    // Player X
-                    box.innerText = "X";
-                    turn0 = true;
-                }
-                box.disabled = true;
-                moves++;
-                if (checkWinner()) {
-                    // Handle winner
-                } else if (checkTie()) {
-                    // Handle tie
-                    showTieMessage();
-                }
-            });
-        });
+  // Add click event listeners to each box
+boxes.forEach((box) => {
+    box.addEventListener("click", () => {
+        console.log("box was clicked");
+        if (turn0) {
+            // Player O
+            box.innerText = "O";
+            turn0 = false;
+        } else {
+            // Player X
+            box.innerText = "X";
+            turn0 = true;
+        }
+        box.disabled = true;
+        moves++;
+
+        if (checkWinner()) {
+            // Handle winner
+        } else if (checkTie()) {
+            // Handle tie
+            showTieMessage();
+        }
+    });
+});
+
     });
 
     const resetgame = () => {
